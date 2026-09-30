@@ -1,0 +1,6 @@
+{
+  "name": "Aegis Node",
+  "description": "Ambient Intelligence at the Edge — Privacy-first multimodal AI security and productivity application for Snapdragon-powered PCs.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

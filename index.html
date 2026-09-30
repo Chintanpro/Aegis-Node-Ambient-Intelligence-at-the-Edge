@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <script>
+      (function() {
+        try {
+          var _origFetch = typeof window !== 'undefined' ? window.fetch : null;
+          var _currentFetch = _origFetch;
+          var getFetch = function() { return _currentFetch; };
+          var setFetch = function(fn) { _currentFetch = fn; };
+
+          if (typeof window !== 'undefined') {
+            Object.defineProperty(window, 'fetch', {
+              get: getFetch,
+              set: setFetch,
+              configurable: true,
+              enumerable: true
+            });
+          }
+
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', {
+                get: getFetch,
+                set: setFetch,
+                configurable: true,
+                enumerable: true
+              });
+            } catch (_) {}
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aegis Node — Ambient Intelligence at the Edge</title>
+    <meta name="description" content="Ambient Intelligence at the Edge — Privacy-first multimodal AI security and productivity application for Snapdragon-powered PCs." />
+    <meta property="og:title" content="Aegis Node — Ambient Intelligence at the Edge" />
+    <meta property="og:description" content="Ambient Intelligence at the Edge — Privacy-first multimodal AI security and productivity application for Snapdragon-powered PCs." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
